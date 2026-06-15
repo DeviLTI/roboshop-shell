@@ -33,13 +33,13 @@ validate(){
 }
 
 dnf module disable nginx -y &>>$logfile
-validate $? "Disabling default nginx " 
+validate $? "Disabling default nginx" 
 
 dnf module enable nginx:1.24 &>>$logfile
-validate $? "Enabling nginx "
+validate $? "Enabling nginx"
 
 dnf install nginx -y &>>$logfile
-validate $? "Installing nginx "
+validate $? "Installing nginx"
 
 systemctl enable nginx  &>>$logfile
 validate $? "Enabling service"
@@ -47,7 +47,7 @@ validate $? "Enabling service"
 systemctlstart nginx &>>$logfile
 validate $? "starting nginx serever"
 
-rm -rf /usr/share/nginx/html &>>$logfile
+rm -rf /usr/share/nginx/html/* &>>$logfile
 validate $? "Removing default content"
 
 curl -o /temp/frontend.zip  https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip &>>$logfile
@@ -64,5 +64,5 @@ cp $Script_dir/nginx.conf /etc/nginx/nginx.conf &>>$logfile
 validate $? "copiying configurations"
 
 systemctlrestart nginx &>>$logfile
-validate $? "Restarting nginx "
+validate $? "Restarting nginx"
 
