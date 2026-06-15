@@ -10,6 +10,7 @@ Logfolder="/var/logs/roboshop-logs"
 script_name=$(echo $0 | cut -d '.' -f1)
 logfile="$Logfolder/$script_name.log"
 Script_dir=$PWD
+
 mkdir -p $Logfolder
 echo "Script started executing at : $(date)" | tee -a $logfile
 
@@ -20,7 +21,7 @@ echo "Run this script with sudo access" | tee -a $logfile
 exit
 else
 echo "you are running with sudo " | tee -a $logfile
-
+fi
 
 validate(){
     if [ $1 -eq 0 ]
