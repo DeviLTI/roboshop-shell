@@ -17,8 +17,8 @@ fi
 
 
 validate(){
-    if[ $1 -eq 0 ]
-      then
+    if [ $1 -eq 0 ]
+    then
       echo -e "$2 installation $G success $N"
     else
       echo -e "$2 installation $R failed $N"
@@ -29,7 +29,7 @@ validate(){
 
 
 dnf list installed nginx
-if[ $? -ne 0 ]
+if [ $? -ne 0 ]
 then
 echo "$2 is not installed...going to install"
     dnf install nginx
