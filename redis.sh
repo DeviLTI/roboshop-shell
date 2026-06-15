@@ -26,30 +26,30 @@ echo "script started executing at : $(date)"
 validate(){
     if [ $1 -eq 0 ]
     then 
-    echo -e "$2 is... $G Success $N"
+    echo -e "$2 is... $G Success $N" 
     else
     echo -e "$2 is ...$R Failed $N"
     exit 1
     fi
 }
 
-dnf module disable redis -y 
+dnf module disable redis -y &>>$logfile
 validate $? "disabling default redis"
 
-dnf module enable redis:7 -y 
+dnf module enable redis:7 -y &>>$logfile
 validate $? "Enabling redis"
 
-dnf install redis -y 
+dnf install redis -y &>>$logfile
 validate $? "Installation of redis"
 
-sed -i -e 's/127.0.0.1/0.0.0.0/g' -e '/protected-mode/ c protected-mode no' /etc/redis/redis.conf
+sed -i -e 's/127.0.0.1/0.0.0.0/g' -e '/protected-mode/ c protected-mode no' /etc/redis/redis.conf &>>$logfile
 validate $? "changing port and protected mode"
 
-systemctl enable redis 
+systemctl enable redis &>>$logfile
 validate $? "enabling redis"
 
 
-systemctl start redis 
+systemctl start redis &>>$logfile
 validate $? "Starting redis"
 
 
