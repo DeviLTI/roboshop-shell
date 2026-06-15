@@ -6,9 +6,9 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 Logfolder="/var/logs/roboshop-shell"
-Scriptname= $(echo ${0} | cut -d '.' -f1)
-logfile = Logfolder/Scriptname.log
-Scriptdir = $PWD
+Scriptname=$(echo ${0} | cut -d '.' -f1)
+logfile=Logfolder/Scriptname.log
+Scriptdir=$PWD
 package=mysql
 
 if [ $userid -ne 0 ]
