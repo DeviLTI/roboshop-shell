@@ -4,7 +4,7 @@
 
 AMI_ID="ami-0220d79f3f480ecf5"
 SG_ID="sg-0f5d722990e27d6eb" # replace with your SG ID
-INSTANCES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "frontend")
+INSTANCES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "frontend")
 ZONE_ID="Z07085248BXF6N8LMPZW" # replace with your ZONE ID
 DOMAIN_NAME="daws23.space" # replace with your domain
 
