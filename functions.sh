@@ -6,7 +6,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 Logfolder="/var/logs/roboshop-shell"
-Script-name= "$(echo ${0} | cut -d '.' -f1)
+Script-name= $(echo ${0} | cut -d '.' -f1)
 logfile = "Logfolder/Script-name".log
 Script_dir = $PWD
 package=mysql
@@ -23,9 +23,9 @@ fi
 validate(){
     if [ $1 -eq 0 ]
     then
-      echo -e "$2 installation ${G} success ${N} " &>>logfile
+      echo -e "$2 installation ${G} success ${N}" &>>logfile
     else
-      echo -e "$2 installation ${R} failed ${N}  " &>>logfile
+      echo -e "$2 installation ${R} failed ${N}" &>>logfile
       exit 1
     fi
 }
@@ -35,7 +35,7 @@ validate(){
 dnf list installed mysql &>>logfile
 if [ $? -ne 0 ]
 then
-echo "$package is not installed...going to install  "&>>logfile
+echo "$package is not installed...going to install" &>>logfile
 dnf install mysql -y  &>>logfile
 validate $? mysql
 else
