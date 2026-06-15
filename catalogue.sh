@@ -80,7 +80,9 @@ systemctl start catalogue &>>$logfile
 validate $? "strarting Catalogue"
 
 
-cp $SCRIPT_DIR/mongodb.repo /etc/yum.repos.d/mongo.repo 
+cp mongodb.repo /etc/yum.repos.d/mongodb.repo &>>$logfile
+validate $? "copiying mongodb repo"
+
 dnf install mongodb-mongosh -y &>>$logfile
 validate $? "installing mongodb client"
 
