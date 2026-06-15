@@ -18,11 +18,11 @@ fi
 
 validate(){
     if[ $1 -eq 0 ]
-    then
-    echo "$2 installation $G success $N"
+      then
+      echo "$2 installation $G success $N"
     else
-    echo "$2 installation $R failed $N"
-    exit 1
+      echo "$2 installation $R failed $N"
+      exit 1
     fi
 }
 
