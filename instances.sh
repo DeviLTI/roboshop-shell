@@ -1,7 +1,7 @@
 #!/bin/bash
 
 AMI_ID=ami-0220d79f3f480ecf5
-SG_ID=sgr-0202e527062c48de9
+SG_ID=sg-0f5d722990e27d6eb
 Instances=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "frontend")
 Zone_ID=Z07085248BXF6N8LMPZW
 Domain_name=daws23.space
