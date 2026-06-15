@@ -33,13 +33,13 @@ validate(){
     fi
 }
 
-dnf install rabbitmq -y &>>$logfile
+dnf install rabbitmq-server -y &>>$logfile
 validate $? "Installing rabbitmq "
 
-systemctl enable rabbitmq  &>>$logfile
+systemctl enable rabbitmq-server  &>>$logfile
 validate $? "Enabling Rabbitmq"
 
-systemctl start rabbitmq &>>$logfile
+systemctl start rabbitmq-server &>>$logfile
 validate $? "Starting rabbitmq"
 
 rabbitmqctl add_user roboshop roboshop123 &>>$logfile
