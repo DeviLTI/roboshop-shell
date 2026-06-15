@@ -35,11 +35,8 @@ dnf list installed mysql &>>logfile
 if [ $? -ne 0 ]
 then
 echo "$2 is not installed...going to install  "&>>logfile
-    exit 1
-
     dnf install mysql -y  &>>logfile
     validate $? mysql
 else
     echo -e "$2 was already installed.. ${Y} Nothing to do.. ${N}" &>>logfile
 fi
-
