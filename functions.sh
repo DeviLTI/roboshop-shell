@@ -28,12 +28,12 @@ validate(){
 
 
 
-dnf list installed nginx
+dnf list installed mysql
 if [ $? -ne 0 ]
 then
 echo "$2 is not installed...going to install"
-    dnf install nginx
-    validate($? nginx)
+    dnf install mysql
+    validate( $?, mysql )
 else
     echo -e "$2 was already installed.. $Y Nothing to do $N"
 fi
