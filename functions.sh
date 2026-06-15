@@ -10,6 +10,7 @@ Scriptname=$(echo ${0} | cut -d '.' -f1)
 logfile=Logfolder/Scriptname.log
 Scriptdir=$PWD
 package=mysql
+packagee=mysql
 
 if [ $userid -ne 0 ]
 then 
@@ -40,4 +41,14 @@ dnf install mysql -y  &>>logfile
 validate $? mysql
 else
     echo -e "$package was already installed.. ${Y} Nothing to do.. ${N}" |tee -a logfile
+fi
+
+dnf list installed nginx &>>logfile
+if [ $? -ne 0 ]
+then
+echo "$packagee is not installed...going to install" | tee -a logfile
+dnf install nginx -y  &>>logfile
+validate $? nginx
+else
+    echo -e "$packagee was already installed.. ${Y} Nothing to do.. ${N}" |tee -a logfile
 fi
