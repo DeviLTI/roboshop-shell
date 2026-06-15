@@ -45,7 +45,7 @@ validate $? "Installing nginx"
 systemctl enable nginx  &>>$logfile
 validate $? "Enabling service"
 
-systemctlstart nginx &>>$logfile
+systemctl start nginx &>>$logfile
 validate $? "starting nginx serever"
 
 rm -rf /usr/share/nginx/html/* &>>$logfile
@@ -64,6 +64,6 @@ validate $? "removing default configuration"
 cp $Script_dir/nginx.conf /etc/nginx/nginx.conf &>>$logfile
 validate $? "copiying configurations"
 
-systemctlrestart nginx &>>$logfile
+systemctl restart nginx &>>$logfile
 validate $? "Restarting nginx"
 
