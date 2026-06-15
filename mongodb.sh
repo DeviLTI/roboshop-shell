@@ -39,7 +39,7 @@ validate $? "copiying mongodb repo"
 dnf install mongodb-org -y &>>$logfile
 validate $? "Installing MongoDB "
 
-systemctl enable mongod -y &>>$logfile
+systemctl enable mongod  &>>$logfile
 validate $? "Enabling MONGODB"
 
 systemctl start mongod &>>$logfile
