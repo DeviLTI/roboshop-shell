@@ -86,10 +86,10 @@ validate $? "copiying mongodb repo"
 dnf install mongodb-mongosh -y &>>$logfile
 validate $? "installing mongodb client"
 
-STATUS=$(mongosh --host mongodb.daws84s.site --eval 'db.getMongo().getDBNames().indexOf("catalogue")')
+STATUS=$(mongosh --host mongodb.daws23.space --eval 'db.getMongo().getDBNames().indexOf("catalogue")')
 if [ $STATUS -lt 0 ]
 then
-mongosh --host MONGODB-SERVER-IPADDRESS </app/db/master-data.js &>>$logfile
+mongosh --host mongodb.daws23.space </app/db/master-data.js &>>$logfile
 validate $? "downloading master data"
 else
 echo -e " $Y Data already loaded. $N "
