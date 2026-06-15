@@ -9,6 +9,7 @@ Logfolder="/var/logs/roboshop-shell"
 Script-name= "$(echo ${0} | cut -d '.' -f1)
 logfile = "Logfolder/Script-name".log
 Script_dir = $PWD
+package=mysql
 
 if [ $userid -ne 0 ]
 then 
@@ -34,9 +35,9 @@ validate(){
 dnf list installed mysql &>>logfile
 if [ $? -ne 0 ]
 then
-echo "$2 is not installed...going to install  "&>>logfile
-    dnf install mysql -y  &>>logfile
-    validate $? mysql
+echo "$package is not installed...going to install  "&>>logfile
+dnf install mysql -y  &>>logfile
+validate $? mysql
 else
-    echo -e "$2 was already installed.. ${Y} Nothing to do.. ${N}" &>>logfile
+    echo -e "$package was already installed.. ${Y} Nothing to do.. ${N}" &>>logfile
 fi
