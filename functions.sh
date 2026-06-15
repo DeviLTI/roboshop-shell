@@ -40,6 +40,6 @@ echo "$2 is not installed...going to install  "&>>logfile
     dnf install mysql -y  &>>logfile
     validate $? mysql
 else
-    echo -e "$2 was already installed.. ${Y} Nothing to do ${N} "&>>logfile
+    echo -e "$2 was already installed.. ${Y} Nothing to do.. ${N} "&>>logfile
 fi
 
