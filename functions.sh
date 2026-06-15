@@ -1,10 +1,10 @@
 #!/bin/bash
 
 userid=$(id -u)
-R=\e[31m
-G=\e[32m
-Y=\e[33m
-N=\e[0m
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
 
 
 if [ $userid -ne 0 ]
@@ -33,7 +33,7 @@ if [ $? -ne 0 ]
 then
 echo "$2 is not installed...going to install"
     exit 1
-    
+
     dnf install mysql -y
     validate $? mysql
 else
