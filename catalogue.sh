@@ -43,7 +43,7 @@ dnf install nodejs -y &>>$logfile
 validate $? "Installing node js"
 
 id roboshop
-if [ $? -ne 0]
+if [ $? -ne 0 ]
 then
 useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$logfile
 validate $? "creating system user"
@@ -70,7 +70,7 @@ validate $? "dependencies installation"
 cp $Script_dir/catalogue.service /etc/systemd/system/catalogue.service &>>$logfile
 validate $? "copiying service "
 
-systemctl daemon reload &>>$logfile
+systemctl daemon-reload &>>$logfile
 validate $? "reloading the service"
 
 systemctl restart nodejs &>>$logfile
