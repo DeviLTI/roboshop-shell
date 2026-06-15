@@ -28,12 +28,12 @@ validate(){
 
 
 dnf list installed nginx
-if($? -ne 0)
-    then
-    echo "$2 is not installed...going to install"
+if[ $? -ne 0 ]
+then
+echo "$2 is not installed...going to install"
     dnf install nginx
     validate($? nginx)
-    else
+else
     echo "$2 was already installed.. $Y Nothing to do $N"
-    fi
+fi
 
