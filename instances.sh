@@ -1,4 +1,5 @@
 #!/bin/bash
+
 AMI_ID=ami-0220d79f3f480ecf5
 SG_ID=sgr-0202e527062c48de9
 Instances=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "frontend")
@@ -22,8 +23,8 @@ echo "$instance IP address: $IP"
     --hosted-zone-id $ZONE_ID \
     --change-batch '
     {
-        "Comment": "Creating or Updating a record set for cognito endpoint"
-        ,"Changes": [{
+        "Comment": "Creating or Updating a record set for cognito endpoint",
+        "Changes": [{
         "Action"              : "UPSERT"
         ,"ResourceRecordSet"  : {
             "Name"              : "'$RECORD_NAME'"
