@@ -73,8 +73,8 @@ validate $? "copiying service "
 systemctl daemon-reload &>>$logfile
 validate $? "reloading the service"
 
-systemctl restart nodejs &>>$logfile
-validate $? "Restrarting nodejs"
+systemctl start nodejs &>>$logfile
+validate $? "strarting nodejs"
 
 cp $SCRIPT_DIR/mongodb.repo /etc/yum.repos.d/mongo.repo 
 dnf install mongodb-mongosh -y &>>$logfile
