@@ -9,7 +9,7 @@ ZONE_ID="Z07085248BXF6N8LMPZW" # replace with your ZONE ID
 DOMAIN_NAME="daws23.space" # replace with your domain
 
 #for instance in ${INSTANCES[@]}
-for instance in $@
+for instance in ${INSTANCES[@]}
 do
     INSTANCE_ID=$(aws ec2 run-instances --image-id ami-0220d79f3f480ecf5 --instance-type t3.micro --security-group-ids sg-0f5d722990e27d6eb --tag-specifications "ResourceType=instance,Tags=[{Key=Name, Value=$instance}]" --query "Instances[0].InstanceId" --output text)
     if [ $instance != "frontend" ]
