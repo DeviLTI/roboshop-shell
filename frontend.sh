@@ -36,7 +36,7 @@ validate(){
 dnf module disable nginx -y &>>$logfile
 validate $? "Disabling default nginx" 
 
-dnf module enable nginx:1.24 &>>$logfile
+dnf module enable nginx:1.24 -y &>>$logfile
 validate $? "Enabling nginx"
 
 dnf install nginx -y &>>$logfile
