@@ -7,7 +7,7 @@ G="\e[33m"
 N="\e[0m"
 
 Logfolder="/var/logs/roboshop-logs"
-script_name=${echo $0 | cut -d '.' -f1}
+script_name=$(echo $0 | cut -d '.' -f1)
 logfile="$Logfolder/$script_name.log"
 Script_dir=$PWD
 mkdir -p $Logfolder
