@@ -19,9 +19,9 @@ fi
 validate(){
     if [ $1 -eq 0 ]
     then
-      echo -e "$2 installation $G success $N"
+      echo -e "$2 installation ${G} success ${N}"
     else
-      echo -e "$2 installation $R failed $N"
+      echo -e "$2 installation ${R} failed ${N}"
       exit 1
     fi
 }
@@ -32,9 +32,11 @@ dnf list installed mysql
 if [ $? -ne 0 ]
 then
 echo "$2 is not installed...going to install"
+    exit 1
+    
     dnf install mysql -y
     validate $? mysql
 else
-    echo -e "$2 was already installed.. $Y Nothing to do $N"
+    echo -e "$2 was already installed.. ${Y} Nothing to do ${N}"
 fi
 
