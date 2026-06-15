@@ -19,9 +19,9 @@ fi
 validate(){
     if[ $1 -eq 0 ]
       then
-      echo "$2 installation $G success $N"
+      echo -e "$2 installation $G success $N"
     else
-      echo "$2 installation $R failed $N"
+      echo -e "$2 installation $R failed $N"
       exit 1
     fi
 }
@@ -35,6 +35,6 @@ echo "$2 is not installed...going to install"
     dnf install nginx
     validate($? nginx)
 else
-    echo "$2 was already installed.. $Y Nothing to do $N"
+    echo -e "$2 was already installed.. $Y Nothing to do $N"
 fi
 
