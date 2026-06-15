@@ -45,7 +45,7 @@ validate $? "Enabling MONGODB"
 systemctl start mongod &>>$logfile
 validate $? "Starting MongoDB"
 
-sed -i 's/127.0.0.1/0.0.0.0g' /etc/mongod.conf &>>$logfile
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf &>>$logfile
 validate $? "changing port number"
 
 systemctl restart mongod -y &>>$logfile
