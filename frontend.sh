@@ -51,11 +51,11 @@ validate $? "starting nginx serever"
 rm -rf /usr/share/nginx/html/* &>>$logfile
 validate $? "Removing default content"
 
-curl -o /temp/frontend.zip  https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip &>>$logfile
+curl -o /tmp/frontend.zip  https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip &>>$logfile
 validate $? "Downloading our frontend code"
 
 cd /usr/share/nginx/html &>>$logfile
-unzip /temp/frontend.zip
+unzip /tmp/frontend.zip
 validate $? "unzipping the new code"
  
 rm -rf /etc/nginx/nginx.conf &>>$logfile
